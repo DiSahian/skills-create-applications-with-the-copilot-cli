@@ -32,4 +32,29 @@ describe('Calculator basic operations', () => {
   test('large numbers multiplication', () => {
     expect(calc.mul(1e6, 3)).toBe(3e6);
   });
+
+  // Extended operations tests (modulo, power, square root)
+  test('modulo: 5 % 2 = 1', () => {
+    expect(calc.modulo(5, 2)).toBe(1);
+  });
+
+  test('modulo by zero throws', () => {
+    expect(() => calc.modulo(1, 0)).toThrow('Modulo by zero');
+  });
+
+  test('power: 2 ^ 3 = 8', () => {
+    expect(calc.power(2, 3)).toBe(8);
+  });
+
+  test('power with negative exponent: 2 ^ -1 = 0.5', () => {
+    expect(calc.power(2, -1)).toBeCloseTo(0.5, 10);
+  });
+
+  test('squareRoot: sqrt(16) = 4', () => {
+    expect(calc.squareRoot(16)).toBe(4);
+  });
+
+  test('squareRoot of negative number throws', () => {
+    expect(() => calc.squareRoot(-9)).toThrow('Square root of negative number');
+  });
 });
